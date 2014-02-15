@@ -17,11 +17,29 @@ end
 
 def print_state_info
   hold_states =[]
+  state_count = {}
   Senator.all.map{|sen|
     hold_states << sen.state
   }
-  p hold_states.uniq!.sort.count
+  hold_states.uniq!
+
+
+  hold_states.each do |state|
+    state_count[state] = Senator.where(state: state, title: "Rep").count    
+  end
+
+  state_count.sort_by{|state, count| count}.reverse.each do |state, count|
+    puts "#{state} 2 Senators #{count} Representatives"
+  end
+
+
+  # state_count.each do |state, count|
+  #   puts "#{state} 2 Senators #{count} Representatives"
+  # end
+
+
     # sen_count = Senator.where(gender: gender,state: state, title: "Sen", in_office: "1").count
+
     # rep_count = Senator.where(gender: gender,state: state, title: "Rep", in_office: "1").count
      
 end
