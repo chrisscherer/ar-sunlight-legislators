@@ -1,14 +1,16 @@
 require 'csv'
 
-class SunlightLegislatorsImporter
+module SunlightLegislatorsImporter
   def self.import(filename)
+    field_names = nil
     csv = CSV.new(File.open(filename), :headers => true)
     csv.each do |row|
+      senator_info = {}
       row.each do |field, value|
-        # TODO: begin
-        raise NotImplementedError, "TODO: figure out what to do with this row and do it!"
-        # TODO: end
+        hold = {field => value}
+        senator_info.merge!(hold)
       end
+      senator = Senator.create(senator_info)
     end
   end
 end
