@@ -28,7 +28,7 @@ def print_state_info
   end
 
   state_count.sort_by{|state, count| count}.reverse.each do |state, count|
-    puts "#{state} 2 Senators #{count} Representatives"
+    puts "#{state}: 2 Senators, #{count} Representatives"
   end 
 end
 
