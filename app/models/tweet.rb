@@ -16,10 +16,10 @@ attr_accessor :twitter_members
 
 	def create_client
 		@client = Twitter::REST::Client.new do |config|
-		  config.consumer_key        = "2YopdUSKiS8dEOcEpXw"
-		  config.consumer_secret     = "dV5NnYWJ9djukGYr91sAINs0biqUAfWXlzVTKVQ"
-		  config.access_token        = "1438670803-VtKJ6yuriQLF0CmGg7HMUAU9At4DJ4XuLYrjbA3"
-		  config.access_token_secret = "LpPHyVNIX2CV913s9pM7IHwCO5WnITqoc06eJsSxvN8WH"
+		  config.consumer_key        = "oops"
+		  config.consumer_secret     = "blaah"
+		  config.access_token        = "nothing to see here"
+		  config.access_token_secret = "look away"
 		end
 	end
 
