@@ -1,4 +1,8 @@
 require_relative 'app/models/senator.rb'
+require_relative 'app/models/tweet'
+require 'Twitter'
+include Twitter_stuff
+
 
 def get_state_reps(state)
   puts "\n Senators: "
@@ -32,6 +36,37 @@ def print_state_info
   end 
 end
 
+
+def count_members
+  puts "Senators: #{Senator.where(title: "Sen", in_office: "1").count}"
+  puts "Representatives: #{Senator.where(title: "Rep").count}"
+end
+
+def delete_non_active
+  Senator.destroy_all(in_office: "0")
+end
+
+# puts "#{Senator.all.map{|item| item.twitter_id}}"
+# puts "------------------------------------------------------"
+# puts "------------------------------------------------------"
+# puts "------------------------------------------------------"
+
+# puts Senator.find(3).tweets.map{|tweet| tweet}
+
+
+
 # get_state_reps('AL')
 # calc_gender_distribution("F")
-print_state_info
+# print_state_info
+# count_members
+# delete_non_active
+# count_members
+create_client
+# members_with_twitter
+# grab_tweets(3)
+# grab_tweets(2)
+# grab_tweets(4)
+# puts "#{Senator.all.map{|item| item.id}}"
+display_tweets_for_senator(2)
+
+
